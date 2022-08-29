@@ -20,7 +20,7 @@ nombres_link <- html_text(links_nodos)
 
 links_solo_xls <- links %>% 
   as.tibble() %>% 
-  mutate(nombre_link = nombres_links) %>% 
+  mutate(nombre_link = nombres_link) %>% 
   filter(stringr::str_ends(value, '.xls') | stringr::str_ends(value, '.xlsx')) %>% 
   filter(!str_detect(value, '_informe') & !str_detect(value, '_Resultado') & !str_detect(value, '_cap')) %>% 
   mutate(links =  paste0("https://www.siss.gob.cl/586/",value))
