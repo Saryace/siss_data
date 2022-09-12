@@ -5,7 +5,9 @@
 
 datos_limpios_numericos %>% 
   group_by(mes,anio) %>% 
-  count() 
+  drop_na() %>% 
+  count() %>% 
+  View()
 
 datos_limpios_numericos %>% 
   group_by(anio) %>% 

@@ -25,16 +25,8 @@ datos_limpios_xls <-
 datos_limpios_excel <-
   datos_raw_excel %>%
   clean_names() %>% #nombre de columnas en minusculas y "_"
-  select( # selecciono las columnas
-    source,
-    concesionaria,
-    servicio,
-    parametro,
-    limite,
-    unidades,
-    valor_promedio,
-    evaluacion
-  ) %>%
+  drop_na(concesionaria, servicio) %>% 
+  filter(concesionaria != "CONCESIONARIA") %>% 
   # dejamos source como link relativo web
   mutate(source = str_remove(source, "data/descarga_"),
          tipo_de_parametro = NA_character_) %>%

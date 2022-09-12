@@ -14,4 +14,3 @@ datos_limpios_numericos <-
   separate(texto_link, c("detalle", "fecha"), sep = "–|-") %>% #datos con diferentes hyphens (ENDASH)
   mutate(fecha = tolower(str_trim(fecha))) %>% #meses en minuscula y sin espacios
   separate(fecha, c("mes", "anio"), sep = " ") 
-
